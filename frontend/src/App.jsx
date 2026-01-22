@@ -61,7 +61,7 @@ function App() {
       // INJECT NEW DETAILS INTO CONTEXT FOR AI
       const promptWithContext = `${textToSend} \n(Context: Patient Age: ${user.age}, Weight: ${user.weight}kg, Height: ${user.height}cm, Blood Group: ${user.bloodGroup})`;
 
-      const response = await axios.post('http://127.0.0.1:8000/symptoms/analyze', { 
+      const response = await axios.post('http://dr-care-backend.onrender.com/symptoms/analyze', { 
         user_name: user.name, 
         text: promptWithContext 
       });
