@@ -84,7 +84,7 @@ function App() {
       // PASS USER DETAILS TO SAVE SESSION
       saveSession(textToSend, botResponse, historyType, user); 
 
-    } catch (error) {
+    } catch (e) { console.error(e);
       setMessages(prev => [...prev, { role: 'bot', text: "Error connecting to AI." }]);
     } finally {
       setIsLoading(false);
@@ -123,7 +123,7 @@ function App() {
       setMessages(prev => [...prev, { role: 'bot', text: "Report analyzed and saved." }]);
       saveSession(`Image Analysis: ${file.name}`, result, 'Vision Report', user); // PASS USER
       speak("Report saved.");
-    } catch (error) {
+    } catch (e) { console.error(e);
       setPanelContent(prev => ({ ...prev, text: "Error analyzing image.", loading: false }));
     } finally {
       setIsLoading(false);
